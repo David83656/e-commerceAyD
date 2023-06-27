@@ -6,12 +6,13 @@
     height: 250px;
     max-width: 100%;
     max-height: 100%;
+    margin-left: 100px;
 }
 .contenedor{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100vh;
+    height: 300px;
 }
 
 .centro-izquierda{
@@ -26,4 +27,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.back-etiqueta{
+    min-width: 100px;
+    min-height: 40px;
+    background-color: gray;
+    margin: 10%;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+/*DECORACIÓN*/
+.deco-iconos{
+    max-width: 30px;
+    min-width: 30px;
+    margin-left: 16px;
+}
+.deco-vertical{
+    width: 1px;
+    height: 180px;
+    background-color: black;
+}
+.deco-horizontal{
+    width: 180px;
+    height: 1px;
+    background-color: black;
 }
