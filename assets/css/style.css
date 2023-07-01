@@ -6,6 +6,9 @@
     flex-shrink: 0;
     background: #B8BAB8;
     box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .tipografia-titulos{
     color: #000;
@@ -15,6 +18,8 @@
 }
 
 .contenedor-estructuracion{
+    padding-top: 20px;
+    padding-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,6 +36,7 @@
     max-height: 100%;
     margin-left: 30px;
 }
+
 .contenedor{
     display: flex;
     justify-content: space-between;
@@ -74,16 +80,19 @@
     min-width: 30px;
     margin-left: 16px;
 }
+
 .deco-vertical{
     width: 1px;
     height: 180px;
     background-color: black;
 }
+
 .deco-horizontal{
     width: 180px;
     height: 1px;
     background-color: black;
 }
+
 
 /*Decoración de contenedores de fotos */
 
@@ -95,7 +104,7 @@
     flex-shrink: 0;
     border: 0.5px solid #000;
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
-  }
+}
 
 .img-contenedor img {
     width: 100%;
@@ -103,7 +112,7 @@
     object-fit: cover;
     justify-content: center;
     
-  }
+}
   
 .texto-contenedor-img{
     display: flex;
