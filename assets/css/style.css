@@ -109,6 +109,10 @@
 
 
 /*DECORACIÓN ICONOS Y VECTORES*/
+.boliviano{
+    background-color: black;
+}
+
 .deco-iconos{
     max-width: 30px;
     min-width: 30px;
@@ -129,22 +133,60 @@
 
 
 /*Decoración de contenedores de fotos */
-.img-contenedor {
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.container-mini{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contenedor-clasificacion{
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+.contenedor-clasificacion-short{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 22px;
+}
+
+.img-contenedor-big{
+    display: flex;
+    flex-direction: column;
     width: 300px;
     height: 300px;
+    flex-shrink: 0;
+    border: 0.5px solid #000;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+    
+}
+
+.img-contenedor-big img{
+    max-width: 100%;
+}
+
+.img-contenedor-short img{
+    max-width: 100%;
+}
+
+.img-contenedor-short{
+
+    width: 150px;
+    height: 150px;
     overflow: hidden;
     flex-shrink: 0;
     border: 0.5px solid #000;
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
-}
-
-.img-contenedor img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    justify-content: center;
-    
 }
   
 .texto-contenedor-img{
@@ -191,3 +233,47 @@
 .desplegable:hover .contenido-desplegable {
     display: block;
 }
+
+
+
+
+/*MEDIAS*/
+
+@media screen and (min-width: 1366px) and (min-height: 768px) {
+    .contenedor-clasificacion {
+      font-size: 30px;
+    }
+
+    .img-contenedor-big{
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        height: 400px;
+        flex-shrink: 0;
+        border: 0.5px solid #000;
+        box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    .img-contenedor-short{
+
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        flex-shrink: 0;
+        border: 0.5px solid #000;
+        box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    .container-mini{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 20px;
+    }
+    
+
+
+  }
+
+
+
