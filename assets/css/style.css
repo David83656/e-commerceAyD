@@ -291,12 +291,6 @@
     align-items: center;
 }
   
-  .add-button{
-
-  }
-  .remove-button{
-
-  }
 
 /*MEDIAS*/
 
@@ -425,6 +419,21 @@
         margin-left: 0px;
     }
   }
+
+  .cart-item {
+    position: relative;
+  }
+  
+  .product-image {
+    position: relative;
+    top: 10;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+    border-radius: 50%;
+  }
+  
 
 
 
