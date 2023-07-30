@@ -8,6 +8,40 @@
     position: absolute;
 }
 
+.body-info{
+    background-image: url("https://fondosmil.com/fondo/33460.jpg");
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    filter: blur(0.3px);
+}
+
+.img-bg-principal{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: gray;
+    background-size: cover;
+    filter: blur(0.5px);
+}
+
+.img-bg-principal-cont {
+    background-color: gray;
+    background-size: cover;
+    filter: blur(0.5px);
+}
+
+.img-bg-principal-cont h1 {
+    color: white; 
+    font-size: 20px; 
+    max-width: 600px; 
+    text-align: center; 
+    padding: 20px; 
+    line-height: 1.6; 
+}
+
+
+
 
 .contenedor-titulo{
     width: 195px;
