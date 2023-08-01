@@ -195,61 +195,21 @@ pagar.addEventListener('click',()=>{
 });
 
 
-
-
-  // Obtener referencias a los elementos del formulario
-  const loginForm = document.getElementById('loginForm');
-  const loginBtn = document.getElementById('loginBtn');
-  const registerBtn = document.getElementById('registerBtn');
-
-  // Función para procesar el inicio de sesión
-  function handleLogin(event) {
-    event.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    // Aquí puedes agregar la lógica para verificar las credenciales y realizar el inicio de sesión.
-    // Por ejemplo, puedes enviar los datos a un servidor mediante una solicitud AJAX (fetch o axios).
-
-    // Una vez que el inicio de sesión sea exitoso, puedes cerrar el modal.
-    $('#loginModal').modal('hide');
-  }
-
-  // Función para procesar el registro
-  function handleRegister(event) {
-    event.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    const name = document.getElementById('name').value;
-
-    // Objeto con los datos de registro
-    const registrationData = {
-      Email: username,
-      Password: password,
-      Name: name,
+function enviarPOST() {
+    var data = {
+        "Email": "tu_email@example.com",
+        "Password": "tu_contraseña",
+        "Name": "tu_nombre"
     };
 
-    // Realizar la solicitud POST al servidor utilizando fetch
-    fetch('http://192.168.171.1:3000/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(registrationData),
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Respuesta del servidor:', data);
-        // Aquí puedes realizar acciones adicionales después de recibir la respuesta del servidor.
-      })
-      .catch(error => {
-        console.error('Error al enviar la solicitud:', error);
-        // Aquí puedes manejar errores de solicitud.
-      });
-
-    // Una vez que el registro sea exitoso, puedes cerrar el modal.
-    $('#loginModal').modal('hide');
-  }
-
-  // Asignar eventos a los botones
-  loginBtn.addEventListener('click', handleLogin);
-  registerBtn.addEventListener('click', handleRegister);
+    var xhr = new XMLHttpRequest();
+    var url = 'http://192.168.1.46:3000/login';
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log('Respuesta del servidor:', xhr.responseText);
+        }
+    };
+    xhr.send(JSON.stringify(data));
+}
