@@ -100,6 +100,7 @@ function crearCarrito() {
     pagarButton.classList.add('pagar-button');
     pagarButton.addEventListener('click', function() {
         alert('Total de la compra: $' + totalCompra);
+        mensajito();
     });
     carritoElemento.appendChild(pagarButton);
 }
@@ -167,49 +168,42 @@ popup.addEventListener('click', function(event) {
 
 var preciofinal;
 
-// Función para mostrar un número aleatorio entre 1000 y 10000 en la página
+
 function mostrarNumeroAleatorio() {
-  var numeroAleatorio = Math.floor(Math.random() * 10000) + 1000;
-  var numeroAleatorioDiv = document.getElementById('numeroAleatorioDiv');
   numeroAleatorioDiv.textContent = numeroAleatorio;
   preciofinal=numeroAleatorio;
+  if(carrito==''){
+    numeroAleatorio=0;
+  }
+  totalCompra=preciofinal;
 }
 
-// Mostrar el número aleatorio en la página al cargarla
+
 mostrarNumeroAleatorio();
 
-const pagar= document.getElementById('pagos');
-const preference = {
-    preferenceId: 123456789 // Reemplaza este valor con el preferenceId numérico que necesitas
-  };
-function pay(){
-    const script = document.createElement("script");
-    script.src = "https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js";
-    script.type = "text/javascript";
-    script.dataset.preferenceId = preference.preferenceId;
-    popup.appendChild(script);
-}
-
-pagar.addEventListener('click',()=>{
-    pay();
-});
 
 
-function enviarPOST() {
-    var data = {
-        "Email": "tu_email@example.com",
-        "Password": "tu_contraseña",
-        "Name": "tu_nombre"
-    };
 
-    var xhr = new XMLHttpRequest();
-    var url = 'http://192.168.1.46:3000/login';
-    xhr.open('POST', url, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log('Respuesta del servidor:', xhr.responseText);
-        }
-    };
-    xhr.send(JSON.stringify(data));
-}
+function generarMensaje(carrito) {
+    let mensaje = "¡Hola! Aquí te comparto los productos que un cliente agregó al carrito:\n\n";
+    for (let producto in carrito) {
+      if (carrito.hasOwnProperty(producto)) {
+        mensaje += `Nombre: ${producto}\n`;
+        mensaje += `Cantidad: ${carrito[producto].cantidad}\n`;
+        mensaje += `Precio: $${carrito[producto].precio}\n\n`;
+      }
+    }
+    mensaje += `Precio total: $${totalCompra}\n\n`;
+    return encodeURIComponent(mensaje);
+  }
+  
+  function mensajito() {
+    console.log
+    const mensaje = generarMensaje(carrito);
+    window.open(`https://api.whatsapp.com/send?phone=+542617537574&text=${mensaje}`, "_blank");
+    carrito = {};
+    totalCompra = 0; 
+    guardarCarrito(); 
+    crearCarrito(); 
+  }
+  
